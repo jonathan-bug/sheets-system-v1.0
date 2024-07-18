@@ -13,7 +13,7 @@
                 <h4>Empleados</h4>
             </div>
             <div class='col-6 d-flex justify-content-end'>
-                <a class='btn btn-success' href='#'>
+                <a class='btn btn-success' href='{{route('employees.insert')}}'>
                     <li class='fa fa-plus'></li>
                     Nuevo
                 </a>
@@ -43,13 +43,14 @@
                                 <td>{{$employee->birth_date}}</td>
                                 <td>{{$employee->entry_date}}</td>
                                 <td class='d-flex gap-2 justify-content-end'>
-                                    <form method='post' action=''>
+                                    <form method='post' action='{{route('api.employees.delete', $employee->dui)}}'>
                                         @csrf
+                                        @method('delete')
                                         <button class='btn btn-danger'>
                                             <li class='fa fa-trash'></li>
                                         </button>
                                     </form>
-                                    <a class='btn btn-warning' href=''>
+                                    <a class='btn btn-warning' href='{{route('employees.update', $employee->dui)}}'>
                                         <li class='fa fa-edit'></li>
                                     </a>
                                 </td>
