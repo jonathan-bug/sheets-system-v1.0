@@ -35,21 +35,21 @@
                                 @error('id')
                                 <div class='alert alert-danger'>{{$message}}></div>
                                 @enderror
-                                <input class='form-control' name='id' type='text' value='{{2|old('id')}}'/>
+                                <input class='form-control' name='id' type='text' value='{{$month->id}}' readonly/>
                             </div>
                             <div class='form-group mb-2'>
                                 <label class='form-label' for='month'>Mes</label>
                                 @error('month')
                                 <div class='alert alert-danger'>{{$message}}</div>
                                 @enderror
-                                <input class='form-control' name='month' type='text' value='{{old('month')}}'/>
+                                <input class='form-control' name='month' type='text' value='{{$month->month}}'/>
                             </div>
                             <div class='form-group mb-2'>
                                 <label class='form-label' for='year'>Año</label>
                                 @error('year')
                                 <div class='alert alert-danger'>{{$message}}</div>
                                 @enderror
-                                <input class='form-control' name='year' type='text' value='{{old("year")}}'/>
+                                <input class='form-control' name='year' type='text' value='{{$month->year}}'/>
                             </div>
                         @endcomponent
                     </div>

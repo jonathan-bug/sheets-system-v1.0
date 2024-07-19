@@ -5,17 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Month;
 
 class MonthController extends Controller
 {
     public function index() {
-        return view('pages.months.index');
+        try {
+            $months = Month::paginate(5);
+            return view('pages.months.index')->with('months', $months);
+        }catch(\Exception) {
+            return view('pages.months.index')->with('months', null);
+        }
     }
     public function insert() {
         return view('pages.months.insert');
     }
     public function update($id) {
-        return view('pages.months.update');
+        $month = Month::find($id);
+        return view('pages.months.update')->with('month', $month);
     }
 
     public function get($id) {}
@@ -29,8 +36,7 @@ class MonthController extends Controller
         ])->validate();
 
         try {
-            return $validated;
-
+            Month::create($validated)->save();
             Session::flash('success', true);
         }catch(\Exception) {
             Session::flash('success', false);
@@ -49,11 +55,14 @@ class MonthController extends Controller
         ])->validate();
 
         try {
-            return $validated;
+            $month = Month::find($validated['id']);
+            $month->update($validated);
+            
             Session::flash('success', true);
+            return redirect(route('months'));
         }catch(\Exception) {
-
             Session::flash('success', false);
+            return redirect(route('months'));
         }
     }
 }
