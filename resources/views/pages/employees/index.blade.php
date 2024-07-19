@@ -19,7 +19,7 @@
                 </a>
             </div>
             <div class='col-12 mt-4'>
-                <table class='table table-striped table-bordered table-hover shadow-md'>
+                <table class='table table-striped table-bordered table-hover shadow'>
                     <thead>
                         <tr>
                             <th>DUI</th>

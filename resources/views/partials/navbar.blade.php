@@ -7,20 +7,30 @@
                         <a class="nav-link active" aria-current="page" href="{{route('dashboard')}}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Empleados</a>
+                        <a class="nav-link" href="{{route('employees')}}">Empleados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Meses</a>
+                        <a class="nav-link" href="{{route('months')}}">Meses</a>
                     </li>
                 @elseif($active == 'employees')
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{route('dashboard')}}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Empleados</a>
+                        <a class="nav-link active" href="{{route('employees')}}">Empleados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Meses</a>
+                        <a class="nav-link" href="{{route('months')}}">Meses</a>
+                    </li>
+                @elseif($active == 'months')
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{route('dashboard')}}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('employees')}}">Empleados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('months')}}">Meses</a>
                     </li>
                 @else
                     <li class="nav-item">
