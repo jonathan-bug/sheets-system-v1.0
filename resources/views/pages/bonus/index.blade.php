@@ -38,7 +38,7 @@
                             <td>{{$bonus->id}}</td>
                             <td>${{$bonus->mont}}</td>
                             <td>{{$bonus->reason}}</td>
-                            <td>
+                            <td class='d-flex justify-content-end gap-2'>
                                 <form
                                     action='{{route('api.bonus.delete', $bonus->id)}}'
                                     method='post'>
@@ -48,6 +48,9 @@
                                         <li class='fa fa-trash'></li>
                                     </button>
                                 </form>
+                                <a class='btn btn-warning' href='{{route('bonus.update', $bonus->id)}}'>
+                                    <li class='fa fa-edit'></li>
+                                </a>
                             </td>
                         </tr>
                     @empty

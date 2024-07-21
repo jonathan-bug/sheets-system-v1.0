@@ -84,7 +84,7 @@ Route::get('/bonus/{dui}', [BonusController::class, 'index'])
 Route::get('/bonus/insert/{dui}', [BonusController::class, 'insert'])
      ->name('bonus.insert');
 Route::get('/bonus/update/{id}', [BonusController::class, 'update'])
-     ->name('api.bonus.update');
+     ->name('bonus.update');
 
 Route::post('/api/bonus/post', [BonusController::class, 'post'])
      ->name('api.bonus.post');

@@ -82,10 +82,10 @@ class BonusController extends Controller
             $bonus->update($validated);
 
             Session::flash('success', true);
-            return redirect()->back();
+            return redirect(route('bonus', $validated['employee_dui']));
         }catch(\Exception) {
             Session::flash('success', false);
-            return redirect()->back();
+            return redirect(route('bonus', $validated['employee_dui']));
         }
     }
 }
