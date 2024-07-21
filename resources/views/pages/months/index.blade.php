@@ -55,6 +55,9 @@
                                     <a class='btn btn-warning' href='{{route('months.update', $month->id)}}'>
                                         <li class='fa fa-edit'></li>
                                     </a>
+                                    <a class='btn btn-success' href='{{route('months.current', $month->id)}}'>
+                                        <li class='fa fa-check'></li>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Salary;
+use App\Models\Hour;
 
 class Employee extends Model
 {
@@ -25,5 +26,9 @@ class Employee extends Model
 
     public function salaries() {
         return $this->hasMany(Salary::class);
+    }
+
+    public function hours() {
+        return $this->hasMany(Hour::class);
     }
 }

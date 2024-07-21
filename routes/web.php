@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MonthController;
 use App\Http\Controllers\SalaryController;
+use App\Http\Controllers\HourController;
 
 Route::get('/', [DashboardController::class, 'index'])
      ->name('dashboard');
@@ -33,6 +34,8 @@ Route::get('/months/insert', [MonthController::class, 'insert'])
      ->name('months.insert');
 Route::get('/months/update/{id}', [MonthController::class, 'update'])
      ->name('months.update');
+Route::get('/months/current/{id}', [MonthController::class, 'current'])
+     ->name('months.current');
 
 Route::get('/api/months/{id}', [MonthController::class, 'get'])
      ->name('api.months.get');
@@ -58,3 +61,18 @@ Route::delete('/api/salaries/delete/{id}', [SalaryController::class, 'delete'])
      ->name('api.salaries.delete');
 Route::put('/api/salaries/put', [SalaryController::class, 'put'])
      ->name('api.salaries.put');
+
+// hours
+Route::get('/hours/{dui}', [HourController::class, 'index'])
+     ->name('hours');
+Route::get('/hours/insert/{dui}', [HourController::class, 'insert'])
+     ->name('hours.insert');
+Route::get('/hours/update/{id}', [HourController::class, 'update'])
+     ->name('hours.update');
+
+Route::post('/api/hours/post', [HourController::class, 'post'])
+     ->name('api.hours.post');
+Route::delete('/api/hours/delete/{id}', [HourController::class, 'delete'])
+     ->name('api.hours.delete');
+Route::put('/api/hours/put', [HourController::class, 'put'])
+     ->name('api.hours.put');

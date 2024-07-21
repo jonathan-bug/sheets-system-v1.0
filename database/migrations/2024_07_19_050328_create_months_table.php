@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('month');
             $table->integer('year');
+            $table->dateTime('last');
         });
     }
 

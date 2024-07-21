@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Month;
+use Illuminate\Support\Carbon;
 
 class MonthController extends Controller
 {
@@ -36,6 +37,7 @@ class MonthController extends Controller
         ])->validate();
 
         try {
+            $validated['last'] = Carbon::now()->format('Y-m-d H:i:s');
             Month::create($validated)->save();
             Session::flash('success', true);
             return redirect(route('months'));
@@ -48,6 +50,7 @@ class MonthController extends Controller
         try {
             Month::find($id)->delete();
             Session::flash('success', true);
+            session(['month' => null]);
             return redirect(route('months'));
         }catch(\Exception) {
             Session::flash('success', false);
@@ -75,6 +78,18 @@ class MonthController extends Controller
         }catch(\Exception) {
             Session::flash('success', false);
             return redirect(route('months'));
+        }
+    }
+
+    public function current($id) {
+        try {
+            $lastMonth = Month::find($id);
+            session(['month' => $lastMonth]);
+            Session::flash('month_success', true);
+            return redirect()->back();
+        }catch(\Exception) {
+            Session::flash('month_success', false);
+            return redirect()->back();
         }
     }
 }

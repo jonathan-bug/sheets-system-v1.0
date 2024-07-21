@@ -56,7 +56,7 @@
                                     <a class='btn btn-success' href='{{route('salaries', $employee->dui)}}'>
                                         <li class='fa fa-dollar'></li>
                                     </a>
-                                    <a class='btn btn-primary' href=''>
+                                    <a class='btn btn-primary' href='{{route('hours', $employee->dui)}}'>
                                         <li class='fa fa-clock'></li>
                                     </a>
                                     <a class='btn btn-secondary' href=''>

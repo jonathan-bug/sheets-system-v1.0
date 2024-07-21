@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Month extends Model
+class Hour extends Model
 {
     use HasFactory;
-    public $timestamps = false;
     protected $fillable = [
-        'month',
-        'year',
-        'last'
+        'hour',
+        'employee_dui',
+        'month_id'
     ];
+    public $timestamps = false;
 }
