@@ -53,6 +53,15 @@
                                     <a class='btn btn-warning' href='{{route('employees.update', $employee->dui)}}'>
                                         <li class='fa fa-edit'></li>
                                     </a>
+                                    <a class='btn btn-success' href='{{route('salaries', $employee->dui)}}'>
+                                        <li class='fa fa-dollar'></li>
+                                    </a>
+                                    <a class='btn btn-primary' href=''>
+                                        <li class='fa fa-clock'></li>
+                                    </a>
+                                    <a class='btn btn-secondary' href=''>
+                                        <li class='fa fa-money-bill-trend-up'></li>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
