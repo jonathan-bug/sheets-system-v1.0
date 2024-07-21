@@ -32,7 +32,7 @@
                                 @error('dui')
                                 <div class='alert alert-danger'>{{$message}}</div>
                                 @enderror
-                                <input class='form-control' name='dui' type='text' value='{{$employee->dui}}'/>
+                                <input class='form-control' name='dui' type='text' value='{{$employee->dui}}' readonly/>
                             </div>
                             <div class='form-group mb-2'>
                                 <label class='form-label' for='first_name'>Primer Nombre</label>

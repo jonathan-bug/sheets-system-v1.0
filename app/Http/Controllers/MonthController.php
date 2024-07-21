@@ -38,11 +38,23 @@ class MonthController extends Controller
         try {
             Month::create($validated)->save();
             Session::flash('success', true);
+            return redirect(route('months'));
         }catch(\Exception) {
             Session::flash('success', false);
+            return redirect(route('months'));
         }
     }
-    public function delete($id) {}
+    public function delete($id) {
+        try {
+            Month::find($id)->delete();
+            Session::flash('success', true);
+            return redirect(route('months'));
+        }catch(\Exception) {
+            Session::flash('success', false);
+            return redirect(route('months'));
+        }
+    }
+    
     public function put(Request $request) {
         $validated = Validator::make($request->all(), [
             'id' => ['required'],
