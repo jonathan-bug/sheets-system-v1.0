@@ -59,7 +59,7 @@
                                     <a class='btn btn-primary' href='{{route('hours', $employee->dui)}}'>
                                         <li class='fa fa-clock'></li>
                                     </a>
-                                    <a class='btn btn-secondary' href=''>
+                                    <a class='btn btn-secondary' href='{{route('bonus', $employee->dui)}}'>
                                         <li class='fa fa-money-bill-trend-up'></li>
                                     </a>
                                 </td>

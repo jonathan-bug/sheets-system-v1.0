@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MonthController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\HourController;
+use App\Http\Controllers\BonusController;
 
 Route::get('/', [DashboardController::class, 'index'])
      ->name('dashboard');
@@ -76,3 +77,18 @@ Route::delete('/api/hours/delete/{id}', [HourController::class, 'delete'])
      ->name('api.hours.delete');
 Route::put('/api/hours/put', [HourController::class, 'put'])
      ->name('api.hours.put');
+
+// bonus
+Route::get('/bonus/{dui}', [BonusController::class, 'index'])
+     ->name('bonus');
+Route::get('/bonus/insert/{dui}', [BonusController::class, 'insert'])
+     ->name('bonus.insert');
+Route::get('/bonus/update/{id}', [BonusController::class, 'update'])
+     ->name('api.bonus.update');
+
+Route::post('/api/bonus/post', [BonusController::class, 'post'])
+     ->name('api.bonus.post');
+Route::delete('/api/bonus/delete/{id}', [BonusController::class, 'delete'])
+     ->name('api.bonus.delete');
+Route::put('/api/bonus/put', [BonusController::class, 'put'])
+     ->name('api.bonus.put');
