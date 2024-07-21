@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Salary;
-use App\Models\Employee;
 
 class SalaryController extends Controller
 {
