@@ -15,6 +15,14 @@
         @endcomponent
         
         <div class='row'>
+            @if(session('success') != null)
+                @if(session('success'))
+                    <div class='alert alert-success'>Cambios Hechos</div>
+                @else
+                    <div class='alert alert-danger'>Cambios no Hechos</div>
+                @endif
+            @endif
+            
             <div class='col-6'>
                 <h4>Salarios</h4>
             </div>

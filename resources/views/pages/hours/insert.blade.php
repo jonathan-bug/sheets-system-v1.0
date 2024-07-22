@@ -32,22 +32,23 @@
                         @csrf
                         @method('post')
                         <div class='form-group'>
+                            
+                            <label class='form-label' for=''>Mes Id: {{session('month')->month}} - {{session('month')->year}}</label>
                             @error('month_id')
                             <div class='alert alert-danger'>
                                 {{$message}}
                             </div>
                             @enderror
-                            <label class='form-label' for=''>Mes Id: {{session('month')->month}} - {{session('month')->year}}</label>
                             <input class='form-control' name='month_id' type='text' value='{{session('month')->id}}' readonly/>
                         </div>
                         <input class='d-none' name='employee_dui' type='text' value='{{$dui}}'/>
                         <div class='form-group mt-2'>
+                            <label class='form-label' for=''>Horas</label>
                             @error('hour')
                             <div class='alert alert-danger'>
                                 {{$message}}
                             </div>
                             @enderror
-                            <label class='form-label' for=''>Horas</label>
                             <input class='form-control' name='hour' type='text' value=''/>
                         </div>
                         

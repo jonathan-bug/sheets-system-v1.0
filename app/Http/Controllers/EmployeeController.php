@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Carbon;
 use App\Models\Employee;
+use App\Utility\Loader;
 
 class EmployeeController extends Controller
 {
     public function index() {
         try {
+            Loader::load();
             $employees = Employee::paginate(5);
             return view('pages.employees.index')->with('employees', $employees);
         }catch(\Exception) {
@@ -22,9 +24,9 @@ class EmployeeController extends Controller
     public function delete($dui) {
         try {
             Employee::destroy($dui);
-            Session::flash('succes', true);
+            Session::flash('success', true);
         }catch(\Exception) {
-            Session::flash('succes', false);
+            Session::flash('success', false);
         }
 
         return redirect(route('employees'));

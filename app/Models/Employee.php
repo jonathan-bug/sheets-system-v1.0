@@ -12,6 +12,7 @@ class Employee extends Model
     use HasFactory;
     
     protected $primaryKey = 'dui';
+    public $incrementing = false;
     public $timestamps = false;
     protected $fillable = [
         'dui',

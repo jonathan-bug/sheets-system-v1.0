@@ -43,12 +43,12 @@
                         <input class='d-none' name='id' type='text' value='{{$hour->id}}'/>
                         <input class='d-none' name='employee_dui' type='text' value='{{$hour->employee_dui}}'/>
                         <div class='form-group mt-2'>
+                            <label class='form-label' for=''>Horas</label>
                             @error('hour')
                             <div class='alert alert-danger'>
                                 {{$message}}
                             </div>
                             @enderror
-                            <label class='form-label' for=''>Horas</label>
                             <input class='form-control' name='hour' type='text' value='{{$hour->hour}}'/>
                         </div>
                         

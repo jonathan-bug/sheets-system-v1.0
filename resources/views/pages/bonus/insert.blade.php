@@ -34,17 +34,17 @@
                     <input class='form-control' name='month_id' type='text' value='{{session('month')->id}}' readonly/>
                 </div>
                 <div class='form-group mt-2'>
+                    <label class='form-label' for=''>Monto</label>
                     @error('mont')
                     <div class='alert alert-danger'>{{$message}}</div>
                     @enderror
-                    <label class='form-label' for=''>Monto</label>
                     <input class='form-control' name='mont' type='text' value=''/>
                 </div>
                 <div class='form-group mt-2'>
+                    <label class='form-label' for=''>Motivo</label>
                     @error('reason')
                     <div class='alert alert-danger'>{{$message}}</div>
                     @enderror
-                    <label class='form-label' for=''>Motivo</label>
                     <input class='form-control' name='reason' type='text' value=''/>
                 </div>
                 <input class='d-none' name='employee_dui' type='text' value='{{$dui}}'/>

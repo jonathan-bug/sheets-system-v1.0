@@ -9,6 +9,19 @@
         @endcomponent
 
         <div class='row'>
+            @if(!session('month'))
+                <div class='alert alert-warning'>
+                    Debes agregar un mes o activa uno dandole al cheque en Meses
+                </div>
+            @endif
+            @if(session('success') != null)
+                @if(session('success'))
+                    <div class='alert alert-success'>Cambios Hechos</div>
+                @else
+                    <div class='alert alert-danger'>Cambios no Hechos</div>
+                @endif
+            @endif
+            
             <div class='col-6'>
                 <h4>Empleados</h4>
             </div>
@@ -18,7 +31,8 @@
                     Nuevo
                 </a>
             </div>
-            <div class='col-12 mt-4'>
+            
+            <div class='col-12 mt-4 table-responsive'>
                 <table class='table table-striped table-bordered table-hover shadow'>
                     <thead>
                         <tr>
@@ -32,6 +46,7 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         @foreach($employees as $employee)
                             <tr>
@@ -42,26 +57,28 @@
                                 <td>{{$employee->second_lastname}}</td>
                                 <td>{{$employee->birth_date}}</td>
                                 <td>{{$employee->entry_date}}</td>
-                                <td class='d-flex gap-2 justify-content-end'>
-                                    <form method='post' action='{{route('api.employees.delete', $employee->dui)}}'>
-                                        @csrf
-                                        @method('delete')
-                                        <button class='btn btn-danger'>
-                                            <li class='fa fa-trash'></li>
-                                        </button>
-                                    </form>
-                                    <a class='btn btn-warning' href='{{route('employees.update', $employee->dui)}}'>
-                                        <li class='fa fa-edit'></li>
-                                    </a>
-                                    <a class='btn btn-success' href='{{route('salaries', $employee->dui)}}'>
-                                        <li class='fa fa-dollar'></li>
-                                    </a>
-                                    <a class='btn btn-primary' href='{{route('hours', $employee->dui)}}'>
-                                        <li class='fa fa-clock'></li>
-                                    </a>
-                                    <a class='btn btn-secondary' href='{{route('bonus', $employee->dui)}}'>
-                                        <li class='fa fa-money-bill-trend-up'></li>
-                                    </a>
+                                <td>
+                                    <div class='d-flex gap-2 justify-content-end'>
+                                        <form method='post' action='{{route('api.employees.delete', $employee->dui)}}'>
+                                            @csrf
+                                            @method('delete')
+                                            <button class='btn btn-danger'>
+                                                <li class='fa fa-trash'></li>
+                                            </button>
+                                        </form>
+                                        <a class='btn btn-warning' href='{{route('employees.update', $employee->dui)}}'>
+                                            <li class='fa fa-edit'></li>
+                                        </a>
+                                        <a class='btn btn-success' href='{{route('salaries', $employee->dui)}}'>
+                                            <li class='fa fa-dollar'></li>
+                                        </a>
+                                        <a class='btn btn-primary' href='{{route('hours', $employee->dui)}}'>
+                                            <li class='fa fa-clock'></li>
+                                        </a>
+                                        <a class='btn btn-secondary' href='{{route('bonus', $employee->dui)}}'>
+                                            <li class='fa fa-money-bill-trend-up'></li>
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

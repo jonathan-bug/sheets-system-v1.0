@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('reason');
             $table->foreign('employee_dui')
                   ->references('dui')
-                  ->on('employees');
+                  ->on('employees')->onDelete('cascade');
             $table->foreign('month_id')
                   ->references('id')
-                  ->on('months');
+                  ->on('months')->onDelete('cascade');
         });
     }
 

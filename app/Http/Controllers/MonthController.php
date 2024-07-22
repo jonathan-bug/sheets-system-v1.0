@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Month;
 use Illuminate\Support\Carbon;
+use App\Utility\Loader;
 
 class MonthController extends Controller
 {
     public function index() {
         try {
+            Loader::load();
             $months = Month::paginate(5);
             return view('pages.months.index')->with('months', $months);
         }catch(\Exception) {

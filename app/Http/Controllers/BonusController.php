@@ -6,13 +6,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Bonus;
+use App\Models\Month;
+use App\Utility\Loader;
 
 class BonusController extends Controller
 {
     public function index($dui) {
         try {
-            $bonuses = Bonus::where('employee_dui', $dui)->paginate(5);
-            return view('pages.bonus.index')->with('bonuses', $bonuses)->with('dui', $dui);
+            if(Loader::load()) {
+                $bonuses = Bonus::where('employee_dui', $dui)
+                                ->where('month_id', session('month')->id)
+                                ->paginate(5);
+                return view('pages.bonus.index')->with('bonuses', $bonuses)->with('dui', $dui);
+            }else {
+                return redirect()->back();
+            }
         }catch(\Exception) {
             return view('pages.bonus.index')->with('bonuses', []);
         }

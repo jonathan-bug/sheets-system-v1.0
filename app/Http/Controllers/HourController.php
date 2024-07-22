@@ -7,28 +7,19 @@ use App\Models\Hour;
 use App\Models\Month;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Utility\Loader;
 
 class HourController extends Controller
 {
     public function index($dui) {
         try {
-            
-            if(session('month')) {
+            if(Loader::load()) {
                 $hours = Hour::where('employee_dui', $dui)
                              ->where('month_id', session('month')->id)
                              ->paginate(5);
                 return view('pages.hours.index')->with('hours', $hours)->with('dui', $dui);
             }else {
-                $lastMonth = Month::all()->sortBy('last')->first();
-
-                if($lastMonth) {
-                    $hours = Hour::where('employee_dui', $dui)->where('month_id', $lastMonth->id)
-                                 ->paginate(5);
-                    session(['month' => $lastMonth]);
-                    return view('pages.hours.index')->with('hours', $hours)->with('dui', $dui);
-                }else {
-                    return redirect()->back();
-                }
+                return redirect()->back();
             }
         }catch(\Exception) {
             return view('pages.hours.index')->with('hours', []);
