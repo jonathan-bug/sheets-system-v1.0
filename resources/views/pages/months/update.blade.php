@@ -14,7 +14,7 @@
         
         <div class='row'>
             <div class='col-6'>
-                <h4>Nuevo Mes</h4>
+                <h4>Cambiar Mes</h4>
             </div>
             <div class='col-6 d-flex justify-content-end'>
                 <a class='btn btn-secondary' href='{{route('months')}}'>Volver</a>
@@ -24,7 +24,7 @@
                 <div class='row justify-content-center'>
                     <div class='col-12 col-sm-8 col-md-6 col-lg-5'>
                         @component('components.form', [
-                                                                  'title' => 'Nuevo Mes',
+                                                                  'title' => 'Información Mes',
                                                                   'action' => route('api.months.put'),
                                                                   'method' => 'post'
                                                                   ])

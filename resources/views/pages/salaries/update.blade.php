@@ -28,7 +28,7 @@
             
             <div class='col-12'>
                 @component('components.form', [
-                                                                                   'title' => 'Cambiar Salario',
+                                                                                   'title' => 'Información Salario',
                                                                                    'action' => route('api.salaries.put'),
                                                                                    'method' => 'post'
                                                                                    ])

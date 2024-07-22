@@ -11,7 +11,7 @@
 
         <div class='row'>
             <div class='col-6'>
-                <h4>Nuevo Empleado</h4>
+                <h4>Cambiar Empleado</h4>
             </div>
             <div class='col-6 d-flex justify-content-end'>
                 <a class='btn btn-secondary' href='{{route('employees')}}'>Volver</a>
@@ -21,7 +21,7 @@
                 <div class='row justify-content-center'>
                     <div class='col-12 col-sm-8 col-md-6 col-lg-5'>
                         @component('components.form', [
-                                                                  'title' => 'Nuevo Empleado',
+                                                                  'title' => 'Información Empleado',
                                                                   'action' => route('api.employees.put'),
                                                                   'method' => 'post'
                                                                   ])

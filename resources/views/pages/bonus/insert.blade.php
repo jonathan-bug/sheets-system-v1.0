@@ -23,7 +23,7 @@
 
         <div class='col-12 mt-4'>
             @component('components.form', [
-                'title' => 'Nuevo Bono o Descuento',
+                'title' => 'Información Bono o Descuento',
                 'action' => route('api.bonus.post'),
                 'method' => 'post'
             ])

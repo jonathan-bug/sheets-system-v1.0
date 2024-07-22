@@ -9,13 +9,13 @@
     <li class='breadcrumb-item'>
         <a href='{{route('hours', $hour->employee_dui)}}'>Horas Extras</a>
     </li>
-    <li class='breadcrumb-item active'>Cambiar Horas Extras</li>
+    <li class='breadcrumb-item active'>Cambiar Hora Extra</li>
 @endsection
 
 @section('main')
     <div class='row'>
         <div class='col-6'>
-            <h4>Cambiar Horas Extras</h4>
+            <h4>Cambiar Hora Extra</h4>
         </div>
         <div class='col-6 d-flex justify-content-end'>
             <a class='btn btn-secondary' href='{{route('hours', $hour->employee_dui)}}'>Volver</a>
@@ -26,7 +26,7 @@
                 <div class='col-12 col-sm-8 col-md-6 col-lg-5'>
                     @component('components.form', [
                                   'action' => route('api.hours.put'),
-                                  'title' => 'Cambiar Horas Extras',
+                                  'title' => 'Información Hora Extra',
                                   'method' => 'post'
                                   ])                        
                         @csrf

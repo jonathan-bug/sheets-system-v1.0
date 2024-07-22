@@ -26,7 +26,7 @@
                 <div class='col-12 col-sm-8 col-md-6 col-lg-5'>
                     @component('components.form', [
                         'action' => route('api.hours.post'),
-                        'title' => 'Nueva Hora Extra',
+                        'title' => 'Información Hora Extra',
                         'method' => 'post'
                     ])                        
                         @csrf

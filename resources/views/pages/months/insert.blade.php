@@ -23,7 +23,7 @@
             <div class='col-12'>
                 <div class='row justify-content-center'>
                     <div class='col-12 col-sm-8 col-md-6 col-lg-5'>
-                        @component('components.form', ['title' => 'Nuevo Mes',
+                        @component('components.form', ['title' => 'Información Mes',
                                                                   'action' => route('api.months.post'),
                                                                   'method' => 'post'
                                                                   ])
