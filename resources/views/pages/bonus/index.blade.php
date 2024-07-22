@@ -11,12 +11,20 @@
 
 @section('main')
     <div class='row'>
+        @if(!session('month'))
+            <div class='alert alert-warning'>
+                Debes agregar un mes o activa uno dandole al cheque en Meses
+            </div>
+        @else
+            <h5 class='d-flex justify-content-end text-secondary mt-2 mb-4'>Mes Actual: {{session('month')->month}}/{{session('month')->year}}</h5>
+        @endif
+        
         @if(session('success') != null)
-                @if(session('success'))
-                    <div class='alert alert-success'>Cambios Hechos</div>
-                @else
-                    <div class='alert alert-danger'>Cambios no Hechos</div>
-                @endif
+            @if(session('success'))
+                <div class='alert alert-success'>Cambios Hechos</div>
+            @else
+                <div class='alert alert-danger'>Cambios no Hechos</div>
+            @endif
         @endif
         
         <div class='col-6'>
