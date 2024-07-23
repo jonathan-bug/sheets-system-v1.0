@@ -21,6 +21,8 @@
         @else
             <h5 class='d-flex justify-content-end text-secondary mt-2 mb-4'>Mes Actual: {{session('month')->month}}/{{session('month')->year}}</h5>
         @endif
+
+        
         <div class='col-6'>
             <h4>Nuevo Bono o Descuento</h4>
         </div>

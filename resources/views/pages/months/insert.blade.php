@@ -42,7 +42,11 @@
                                 @error('month')
                                 <div class='alert alert-danger'>{{$message}}</div>
                                 @enderror
-                                <input class='form-control' name='month' type='text' value='{{old('month')}}'/>
+                                <select class='form-select' id='' name='month'>
+                                    @foreach($months as $month_)
+                                        <option value='{{$month_}}'>{{$month_}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class='form-group mb-2'>
                                 <label class='form-label' for='year'>Año</label>

@@ -21,6 +21,16 @@ class Loader {
             return true;
         }
     }
+
+    public static function reload() {
+        try {
+            $month = Month::all()
+                          ->sortBy('last')
+                          ->first();
+
+            session(['month' => $month]);
+        }Catch(\Exception) { null; }
+    }
 }
 
 ?>

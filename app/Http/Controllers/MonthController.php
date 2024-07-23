@@ -21,14 +21,45 @@ class MonthController extends Controller
         }
     }
     public function insert() {
-        return view('pages.months.insert');
+        $months = [
+            'Enero',
+            'Febrero',
+            'Marzo',
+            'Abril',
+            'Mayo',
+            'Junio',
+            'Julio',
+            'Agosto',
+            'Septiembre',
+            'Octubre',
+            'Noviembre',
+            'Diciembre'
+        ];
+        
+        return view('pages.months.insert')->with('months', $months);
     }
     public function update($id) {
         $month = Month::find($id);
-        return view('pages.months.update')->with('month', $month);
+        $months = [
+            'Enero',
+            'Febrero',
+            'Marzo',
+            'Abril',
+            'Mayo',
+            'Junio',
+            'Julio',
+            'Agosto',
+            'Septiembre',
+            'Octubre',
+            'Noviembre',
+            'Diciembre'
+        ];
+        
+        return view('pages.months.update')->with('month', $month)->with('months', $months);
     }
 
     public function get($id) {}
+    
     public function post(Request $request) {
         $validated = Validator::make($request->all(), [
             'month' => ['required'],
@@ -74,6 +105,7 @@ class MonthController extends Controller
         try {
             $month = Month::find($validated['id']);
             $month->update($validated);
+            Loader::reload();
             
             Session::flash('success', true);
             return redirect(route('months'));

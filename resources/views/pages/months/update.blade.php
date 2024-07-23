@@ -49,7 +49,16 @@
                                 @error('month')
                                 <div class='alert alert-danger'>{{$message}}</div>
                                 @enderror
-                                <input class='form-control' name='month' type='text' value='{{$month->month}}'/>
+                                <!-- <input class='form-control' name='month' type='text' value='{{$month->month}}'/> -->
+                                <select class='form-select' id='' name='month'>
+                                    @foreach($months as $month_)
+                                        @if($month_ == $month->month)
+                                            <option value='{{$month_}}' selected>{{$month_}}</option> 
+                                        @else
+                                            <option value='{{$month_}}'>{{$month_}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
                             <div class='form-group mb-2'>
                                 <label class='form-label' for='year'>Año</label>
