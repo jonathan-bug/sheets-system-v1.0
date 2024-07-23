@@ -7,6 +7,7 @@ use App\Http\Controllers\MonthController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\HourController;
 use App\Http\Controllers\BonusController;
+use App\Http\Controllers\CalcsController;
 
 Route::get('/', [DashboardController::class, 'index'])
      ->name('dashboard');
@@ -92,3 +93,6 @@ Route::delete('/api/bonus/delete/{id}', [BonusController::class, 'delete'])
      ->name('api.bonus.delete');
 Route::put('/api/bonus/put', [BonusController::class, 'put'])
      ->name('api.bonus.put');
+
+// calcs
+Route::get('/api/calcs', [CalcsController::class, 'index']);

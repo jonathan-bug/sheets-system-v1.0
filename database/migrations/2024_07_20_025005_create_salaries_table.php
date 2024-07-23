@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('employee_dui');
             $table->decimal('salary');
+            $table->dateTime('last');
             $table->foreign('employee_dui')
                   ->references('dui')
                   ->on('employees')

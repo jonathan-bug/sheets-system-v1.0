@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('employee_dui');
             $table->unsignedBigInteger('month_id');
             $table->decimal('hour');
+            $table->integer('ty');
             $table->foreign('employee_dui')
                   ->references('dui')
                   ->on('employees')

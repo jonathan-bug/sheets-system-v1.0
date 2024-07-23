@@ -58,7 +58,19 @@
                             @enderror
                             <input class='form-control' name='hour' type='text' value=''/>
                         </div>
-                        
+                        <div class='form-group mt-2'>
+                            <label class='form-label' for=''>Equivale</label>
+                            @error('ty')
+                            <div class='alert alert-danger'>
+                                {{$message}}
+                            </div>
+                            @enderror
+                            <select class='form-select' id='' name='ty'>
+                                <option value='1'>Hora Extra Diurna</option>
+                                <option value='2'>Hora Extra Nocturna</option>
+                                <option value='3'>Nocturnidad</option>
+                            </select>
+                        </div>
                     @endcomponent
                 </div>
             </div>

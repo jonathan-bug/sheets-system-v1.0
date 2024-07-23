@@ -11,6 +11,7 @@ class Hour extends Model
     protected $fillable = [
         'hour',
         'employee_dui',
+        'ty',
         'month_id'
     ];
     public $timestamps = false;

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Salary;
+use Illuminate\Support\Carbon;
 
 class SalaryController extends Controller
 {
@@ -34,6 +35,7 @@ class SalaryController extends Controller
         ])->validate();
         
         try {
+            $validated['last'] = Carbon::now()->format('Y-m-d H:i:s');
             Salary::create($validated)->save();
             Session::flash('success', true);
             return redirect(route('salaries', $validated['employee_dui']));

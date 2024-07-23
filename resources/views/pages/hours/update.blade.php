@@ -58,7 +58,29 @@
                             @enderror
                             <input class='form-control' name='hour' type='text' value='{{$hour->hour}}'/>
                         </div>
-                        
+                        <div class='form-group mt-2'>
+                            <label class='form-label' for=''>Equivale</label>
+                            @error('ty')
+                            <div class='alert alert-danger'>
+                                {{$message}}
+                            </div>
+                            @enderror
+                            <select class='form-select' id='' name='ty'>
+                                @if($hour->ty == 1)
+                                    <option value='1' selected>Hora Extra Diurna</option>
+                                    <option value='2'>Hora Extra Nocturna</option>
+                                    <option value='3'>Nocturnidad</option>
+                                @elseif($hour->ty = 2)
+                                    <option value='1'>Hora Extra Diurna</option>
+                                    <option value='2' selected>Hora Extra Nocturna</option>
+                                    <option value='3'>Nocturnidad</option>
+                                @else
+                                    <option value='1'>Hora Extra Diurna</option>
+                                    <option value='2'>Hora Extra Nocturna</option>
+                                    <option value='3' selected>Nocturnidad</option>
+                                @endif
+                            </select>
+                        </div>
                     @endcomponent
                 </div>
             </div>

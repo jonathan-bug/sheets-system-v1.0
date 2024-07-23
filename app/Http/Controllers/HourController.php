@@ -39,6 +39,7 @@ class HourController extends Controller
         $validated = Validator::make($request->all(), [
             'employee_dui' => ['required'],
             'month_id' => ['required'],
+            'ty' => ['required'],
             'hour' => ['required', 'numeric']
         ], [
             'hour.required' => 'Debes ingresar las horas extras',
@@ -72,6 +73,7 @@ class HourController extends Controller
         $validated = Validator::make($request->all(), [
             'id' => ['required'],
             'employee_dui' => ['required'],
+            'ty' => ['required'],
             'hour' => ['required', 'numeric']
         ], [
             'hour.required' => 'Debes ingresar las horas extras',

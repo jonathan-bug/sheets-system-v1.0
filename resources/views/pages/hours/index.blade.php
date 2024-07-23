@@ -44,6 +44,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Horas</th>
+                        <th>Equivale</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -52,6 +53,13 @@
                         <tr>
                             <td>{{$hour->id}}</td>
                             <td>{{$hour->hour}}</td>
+                            @if($hour->ty == 1)
+                                <td>Hora Extra Diurna</td>
+                            @elseif($hour->ty == 2)
+                                <td>Hora Extra Nocturna</td>
+                            @else
+                                <td>Nocturnidad</td>
+                            @endif
                             <td class='d-flex justify-content-end gap-2'>
                                 <form action='{{route('api.hours.delete', $hour->id)}}' method='post'>
                                     @csrf
