@@ -8,6 +8,7 @@ use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\HourController;
 use App\Http\Controllers\BonusController;
 use App\Http\Controllers\CalcsController;
+use App\Http\Controllers\SheetController;
 
 Route::get('/', [DashboardController::class, 'index'])
      ->name('dashboard');
@@ -96,3 +97,6 @@ Route::put('/api/bonus/put', [BonusController::class, 'put'])
 
 // calcs
 Route::get('/api/calcs', [CalcsController::class, 'index']);
+
+// sheets
+Route::get('/sheets', [SheetController::class, 'index']);

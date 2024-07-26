@@ -51,7 +51,7 @@
                     </thead>
 
                     <tbody>
-                        @foreach($employees as $employee)
+                        @forelse($employees as $employee)
                             <tr>
                                 <td>{{$employee->dui}}</td>
                                 <td>{{$employee->first_name}}</td>
@@ -84,7 +84,9 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <div class='alert alert-primary'>Sin Registros</div>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

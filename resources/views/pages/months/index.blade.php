@@ -52,7 +52,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($months as $month)
+                        @forelse($months as $month)
                             <tr>
                                 <td>{{$month->id}}</td>
                                 <td>{{$month->month}}</td>
@@ -75,7 +75,9 @@
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <div class='alert alert-primary'>Sin Registros</div>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
