@@ -99,4 +99,4 @@ Route::put('/api/bonus/put', [BonusController::class, 'put'])
 Route::get('/api/calcs', [CalcsController::class, 'index']);
 
 // sheets
-Route::get('/sheets', [SheetController::class, 'index']);
+Route::get('/sheets', [SheetController::class, 'index'])->name('sheets');

@@ -12,6 +12,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('months')}}">Meses</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('sheets')}}">Hojas</a>
+                    </li>
                 @elseif($active == 'employees')
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{route('dashboard')}}">Dashboard</a>
@@ -21,6 +24,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('months')}}">Meses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('sheets')}}">Hojas</a>
                     </li>
                 @elseif($active == 'months')
                     <li class="nav-item">
@@ -32,18 +38,23 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="{{route('months')}}">Meses</a>
                     </li>
-                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('sheets')}}">Hojas</a>
+                    </li>
+                @elseif($active == 'sheets')
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{route('dashboard')}}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Empleados</a>
+                        <a class="nav-link" href="{{route('employees')}}">Empleados</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Meses</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('months')}}">Meses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('sheets')}}">Hojas</a>
                     </li>
                 @endif
-                
             </ul>
         </div>
     </div>
