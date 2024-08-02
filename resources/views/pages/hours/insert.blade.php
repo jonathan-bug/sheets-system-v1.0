@@ -7,7 +7,7 @@
         <a href='{{route('employees')}}'>Empleados</a>
     </li>
     <li class='breadcrumb-item'>
-        <a href='{{route('hours', $dui)}}'>Horas Extras</a>
+        <a href='{{route('hours', $dui)}}'>Horas</a>
     </li>
     <li class='breadcrumb-item active'>Nuevo</li>
 @endsection
@@ -22,7 +22,7 @@
             <h5 class='d-flex justify-content-end text-secondary mt-2 mb-4'>Mes Actual: {{session('month')->month}}/{{session('month')->year}}</h5>
         @endif
         <div class='col-6'>
-            <h4>Nueva Hora Extra</h4>
+            <h4>Nueva Hora</h4>
         </div>
         <div class='col-6 d-flex justify-content-end'>
             <a class='btn btn-secondary' href='{{route('hours', $dui)}}'>Volver</a>
@@ -33,7 +33,7 @@
                 <div class='col-12 col-sm-8 col-md-6 col-lg-5'>
                     @component('components.form', [
                         'action' => route('api.hours.post'),
-                        'title' => 'Información Hora Extra',
+                        'title' => 'Información Hora',
                         'method' => 'post'
                     ])                        
                         @csrf

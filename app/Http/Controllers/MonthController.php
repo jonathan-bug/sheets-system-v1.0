@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Month;
+use App\Models\Employee;
+use App\Models\Annual;
 use Illuminate\Support\Carbon;
 use App\Utility\Loader;
 
@@ -70,8 +72,33 @@ class MonthController extends Controller
         ])->validate();
 
         try {
+            // add new month
             $validated['last'] = Carbon::now()->format('Y-m-d H:i:s');
-            Month::create($validated)->save();
+            $month = Month::create($validated);
+            $month->save();
+            
+            // all the employees
+            $employees = Employee::all();
+
+            // check if the calculated date is bigger than today
+            forEach($employees as $employee) {
+                // if it is bigger then add new annuals
+                if(today() > new Carbon($employee->calculated_date)) {
+                    // add annuals
+                    Annual::create([
+                        'employee_dui' => $employee->dui,
+                        'month_id' => $month->id
+                    ])->save();
+
+                    // update employee calculated date
+                    $employee->calculated_date = (new Carbon(today()))->addYear(1)->format('Y-m-d');
+                    $employee->save();
+                }
+            }
+
+            // load new month
+            Loader::reload();
+            
             Session::flash('success', true);
             return redirect(route('months'));
         }catch(\Exception) {

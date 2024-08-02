@@ -6,13 +6,21 @@ use App\Utility\Strategy\IConfigurable;
 use App\Models\Employee;
 use Illuminate\Support\Carbon;
 
+/*
+   Al ingresar  un nuevo mes, iterar  por todos los empleados  y si el
+   empleado  ya tiene  tiene  un año  acumulado  entonces calcular  la
+   vacación.
+
+   Al traer  los valores, si la  vacación es nula entonces  mostrar 0,
+   sino el valor calculado de la vacación.
+ */
+
 class Configurable2024 implements IConfigurable {
-    public function updateCalc($values) {
+    public function updateCalculable($values) {
         for($i = 0; $i < $values->count(); $i++) {
             $employee = (array)$values[$i];
             $calculated_date = new Carbon($employee['calculated_date']);
             $today = new Carbon();
-
             if($today > $calculated_date) {
                 $employee_ = Employee::find($employee['dui']);
                 $employee_->calculated_date = (new Carbon($today))->addYear(1)->format('Y-m-d');
@@ -39,13 +47,9 @@ class Configurable2024 implements IConfigurable {
             $employee['v_vacation'] = 0;
             $employee['v_aguinald'] = 0;
 
-            // vacation
-            if($today > $calculated_date) {
+            if($employee['annuals']) {
                 $employee['v_vacation'] = ($employee['salary'] / 30) * 15 * 0.3;
-            }
-
-            // aguinald
-            if($today > $calculated_date) {
+                
                 $years = $today->year - (new Carbon($employee['entry_date']))->year;
 
                 if($years >= 1 && $years < 3) {
@@ -56,6 +60,24 @@ class Configurable2024 implements IConfigurable {
                     $employee['v_aguinald'] = ($employee['salary'] / 30) * 21;
                 }
             }
+
+            // vacation
+            /* if($today > $calculated_date) {
+             *     $employee['v_vacation'] = ($employee['salary'] / 30) * 15 * 0.3;
+             * } */
+
+            // aguinald
+            /* if($today > $calculated_date) {
+             *     $years = $today->year - (new Carbon($employee['entry_date']))->year;
+
+             *     if($years >= 1 && $years < 3) {
+             *         $employee['v_aguinald'] = $employee['salary'] / 2;
+             *     }else if($years >= 3 && $years < 10) {
+             *         $employee['v_aguinald'] = ($employee['salary'] / 30) * 19;
+             *     }else if($years >= 10) {
+             *         $employee['v_aguinald'] = ($employee['salary'] / 30) * 21;
+             *     }
+             * } */
             
             $employee['calculable'] = $employee['salary'] +
                                       $employee['v_extra_day_hour'] +
@@ -84,7 +106,7 @@ class Configurable2024 implements IConfigurable {
             $employee['v_employee_total'] = $employee['calculable'] -
                                             $employee['v_emp_isss'] -
                                             $employee['v_emp_afp'] +
-                                            $employee['bonuses'] -
+                                            $employee['bonuses'] +
                                             $employee['no_bonuses'];
 
             $values[$i] = (object)$employee;

@@ -24,10 +24,12 @@ class Loader {
 
     public static function reload() {
         try {
+            echo 'uu';
             $month = Month::all()
-                          ->sortBy('last')
+                          ->sortByDesc('last')
                           ->first();
 
+            echo $month;
             session(['month' => $month]);
         }Catch(\Exception) { null; }
     }

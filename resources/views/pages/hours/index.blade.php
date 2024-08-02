@@ -6,7 +6,7 @@
     <li class='breadcrumb-item'>
         <a href='{{route('employees')}}'>Empleados</a>
     </li>
-    <li class='breadcrumb-item active'>Horas Extras</li>
+    <li class='breadcrumb-item active'>Horas</li>
 @endsection
 
 @section('main')
@@ -28,7 +28,7 @@
         @endif
         
         <div class='col-6'>
-            <h4>Horas Extras</h4>
+            <h4>Horas</h4>
         </div>
         <div class='col-6 d-flex justify-content-end gap-2'>
             <a class='btn btn-success' href='{{route('hours.insert', $dui)}}'>

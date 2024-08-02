@@ -100,3 +100,4 @@ Route::get('/api/calcs', [CalcsController::class, 'index']);
 
 // sheets
 Route::get('/sheets', [SheetController::class, 'index'])->name('sheets');
+Route::get('/export', [SheetController::class, 'export'])->name('export');

@@ -23,7 +23,7 @@
                 <h4>Hojas</h4>
             </div>
             <div class='col-6 d-flex justify-content-end'>
-                <a class='btn btn-success' href=''>Exportar</a>
+                <a class='btn btn-success' href='{{route('export')}}' target='_blank'>Exportar</a>
             </div>
 
             <div class='col-12 pt-4 table-responsive'>
