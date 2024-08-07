@@ -12,6 +12,8 @@ use App\Http\Controllers\SheetController;
 
 Route::get('/', [DashboardController::class, 'index'])
      ->name('dashboard');
+Route::get('/api/dashboard', [DashboardController::class, 'values'])
+     ->name('api.dashboard');
 
 // employees
 Route::get('/employees', [EmployeeController::class, 'index'])
