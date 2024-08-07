@@ -6,7 +6,7 @@
         @component('components.breadcrumb')
             <li class="breadcrumb-item active" aria-current="page">Inicio</li>
         @endcomponent
-        <div class='row g-4 mb-4'>
+        <div class='row g-4 mt-2'>
             @if(!session('month'))
                 <div class='alert alert-warning'>
                     Debes agregar un mes o activa uno dandole al cheque en Meses
