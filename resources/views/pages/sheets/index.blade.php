@@ -27,7 +27,7 @@
             </div>
 
             <div class='col-12 pt-4 table-responsive'>
-                <table class='table table-striped table-bordered table-hover'>
+                <table class='table table-striped table-bordered table-hover shadow'>
                     <thead>
                         <tr>
                             <th>DUI</th>

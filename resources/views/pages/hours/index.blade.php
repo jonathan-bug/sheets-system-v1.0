@@ -39,7 +39,7 @@
         </div>
 
         <div class='col-12 mt-4'>
-            <table class='table table-striped table-bordered table-hover'>
+            <table class='table table-striped table-bordered table-hover shadow'>
                 <thead>
                     <tr>
                         <th>Id</th>

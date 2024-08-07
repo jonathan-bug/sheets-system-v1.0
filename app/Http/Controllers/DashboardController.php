@@ -25,6 +25,7 @@ class DashboardController extends Controller
             $v_extra_day_hour = $sheets->sum('extra_day_hour');
             $v_extra_night_hour = $sheets->sum('extra_night_hour');
             $v_night_hour = $sheets->sum('night_hour');
+            $v_months_count = DB::table('months')->count();
             
             return view('pages.dashboard.index')->with('v_emp_afp', $v_emp_afp)
                                                 ->with('v_emp_isss', $v_emp_isss)
@@ -34,7 +35,8 @@ class DashboardController extends Controller
                                                 ->with('v_salary_total', $v_salary_total)
                                                 ->with('v_extra_day_hour', $v_extra_day_hour)
                                                 ->with('v_extra_night_hour', $v_extra_night_hour)
-                                                ->with('v_night_hour', $v_night_hour);
+                                                ->with('v_night_hour', $v_night_hour)
+                                                ->with('v_months_count', $v_months_count);
         }else {
             return view('pages.dashboard.index')->with('v_emp_afp', null);
         }
