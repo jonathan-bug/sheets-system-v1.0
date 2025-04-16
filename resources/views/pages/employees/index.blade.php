@@ -14,7 +14,7 @@
                     Debes agregar un mes o activa uno dandole al cheque en Meses
                 </div>
             @else
-                <h5 class='d-flex justify-content-end text-secondary mt-2 mb-4'>Mes Actual: {{session('month')->month}}/{{session('month')->year}}</h5>
+                <h5 class='d-flex justify-content-end text-secondary mt-2 mb-4'>Periodo de {{session('month')->month}} {{session('month')->year}}</h5>
             @endif
             
             @if(session('success') != null)
@@ -36,7 +36,7 @@
             </div>
 
             <div class='col-12 mt-4 table-responsive table-bordered'>
-                <table class='table table-striped table-bordered table-hover shadow'>
+                <table class='table table-striped table-bordered table-hover shadow-sm'>
                     <thead>
                         <tr>
                             <th>DUI</th>
