@@ -10,26 +10,15 @@
         @endcomponent
 
         <div class='row'>
-            @if(!session('month'))
-                <div class='alert alert-warning'>
-                    Debes agregar un mes o activa uno dandole al cheque en Meses
-                </div>
-            @else
-                <h5 class='d-flex justify-content-end text-secondary mt-2 mb-4'>Periodo de {{session('month')->month}} {{session('month')->year}}</h5>
-            @endif
-
-            <div class='col-6'>
-                <h4>Nuevo Empleado</h4>
-            </div>
-            <div class='col-6 d-flex justify-content-end'>
-                <a class='btn btn-secondary' href='{{route('employees')}}'>Volver</a>
+            <div class="col-12">
+                <x-loader/>
             </div>
 
             <div class='col-12'>
                 <div class='row justify-content-center'>
                     <div class='col-12 col-sm-8 col-md-6 col-lg-5'>
                         @component('components.form', [
-                            'title' => 'Información Empleado',
+                            'title' => 'Nuevo Empleado',
                             'action' => route('api.employees.post'),
                             'method' => 'post'
                         ])
@@ -84,6 +73,10 @@
                                 @enderror
                                 <input class='form-control' name='entry_date' type='date' value='{{old('entry_date')}}'/>
                             </div>
+
+                            @slot("button")
+                                <a class='btn btn-secondary' href='{{route('employees')}}'>Volver</a>                                
+                            @endslot
                         @endcomponent
                     </div>
                 </div>
